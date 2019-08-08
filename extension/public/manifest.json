@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "Asana Macros",
+  "description": "This extension is for executing quick actions in Asana for common workflows using the Asana API",
+  "version": "0.0.1",
+
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_title": "Open the popup"
+  },
+  "icons": {
+    "16": "logo-small.png",
+    "48": "logo-small.png",
+    "128": "logo-small.png"
+  },
+  "permissions": [
+  ]
+}
