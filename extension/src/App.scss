@@ -1,15 +1,16 @@
+@import 'colors.scss';
+
 .App {
   text-align: center;
+  color: $gray10
 }
 
 .App-header {
   background-color: #f6f8f9;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   flex-grow: 1;
-  color: black;
 }
 
 .App-link {
