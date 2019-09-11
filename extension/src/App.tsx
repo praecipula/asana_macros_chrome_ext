@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import ScoreSprintScriptButton from './ScoreSprintScriptButton';
+import ParseForwardedEmailDateAndSetDueDateButton from './ParseForwardedEmailDateAndSetDueDateButton';
 
 export class App extends React.Component<{}, {}> {
   render() {
@@ -11,6 +12,7 @@ export class App extends React.Component<{}, {}> {
         <h2 className="App-header">Quick Scripts
         </h2>
         <ScoreSprintScriptButton />
+        <ParseForwardedEmailDateAndSetDueDateButton />
       </div>
     </div>
     )
