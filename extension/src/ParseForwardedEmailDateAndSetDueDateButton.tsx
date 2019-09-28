@@ -16,8 +16,11 @@ export class ParseForwardedEmailDateAndSetDueDateButton extends ScriptButton<any
 
   parseAndSetDateTime = () => {
     console.log("Hello!");
-    console.log(this);
-    console.log(this.state.understander.getTaskIdIfPresent());
+    let promise = this.state.understander.getTaskIdIfPresent();
+    promise.then((res: string) => {
+        console.log("The result is " + res);
+      }
+    )
   }
 
   render() {

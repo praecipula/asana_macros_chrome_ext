@@ -1,6 +1,7 @@
 import React from 'react';
 import ScriptButton from "./ScriptButton"
 import UrlUnderstander from './UrlUnderstander';
+import { UrlMatch } from './UrlUnderstander';
 
 interface IScoreSprintState {
   understander: UrlUnderstander
@@ -15,9 +16,11 @@ export class ScoreSprintScriptButton extends ScriptButton<any, IScoreSprintState
   };
 
   scoreSprint = () => {
-    console.log("Hello!");
-    console.log(this);
-    console.log(this.state.understander.getTaskIdIfPresent());
+    this.state.understander.getTaskIdIfPresent().then(
+      (captures: UrlMatch) => {
+        console.log(captures)
+        console.log("Task gid is " + captures.task_gid + " and " + captures.project_gid);
+    });
   }
 
   render() {
