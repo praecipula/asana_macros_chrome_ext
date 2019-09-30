@@ -1,5 +1,7 @@
 /*global chrome*/
 
+import Environment from "./Environment";
+
 class UrlMatch {
   task_gid: string;
   project_gid?: string;
@@ -16,7 +18,7 @@ class UrlUnderstander {
 
   async getTaskIdIfPresent() {
 
-    if (window.chrome && chrome.runtime && chrome.runtime.id) {
+    if (Environment.isExtension()) {
 
         let promise : Promise<string> = new Promise((resolve: Function, reject: Function) => {
             chrome.tabs.query(
