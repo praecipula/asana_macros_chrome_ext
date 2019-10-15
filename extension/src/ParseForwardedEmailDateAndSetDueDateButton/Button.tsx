@@ -2,6 +2,11 @@ import React from 'react';
 import ScriptButton from "../ScriptButton"
 import UrlUnderstander from '../UrlUnderstander';
 import { UrlMatch } from '../UrlUnderstander';
+// This is an import from outside of the repo because we don't want to check this file in.
+// It is maintained in a separate private Github repository.
+// If we were to release the chrome extension publicly this would still be insecure,
+// but ¯\_(ツ)_/¯ why set up a server just to store secrets for my own private extension?
+import AppSecrets from '../AppSecrets/AppSecrets';
 
 declare var Asana: any;
 
@@ -22,8 +27,7 @@ export class ParseForwardedEmailDateAndSetDueDateButton extends ScriptButton<any
     let promise = this.state.understander.getTaskIdIfPresent();
     promise.then((res: UrlMatch) => {
         console.log("The result is " + res.task_gid);
-        let myTestingPatRemoveMe = "0/aeca1b52e85be7554917a8ce3ef31981";
-        let client = Asana.Client.create().useAccessToken(myTestingPatRemoveMe);
+        let client = Asana.Client.create().useAccessToken(AppSecrets.asana_pat);
         return client.tasks.findById(res.task_gid);
       }
     ).then((apiResult: any) => {
