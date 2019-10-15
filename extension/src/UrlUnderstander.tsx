@@ -15,6 +15,11 @@ class UrlMatch {
 
 class UrlUnderstander {
 
+  urlForNonExtension?: string;
+
+  constructor(urlForNonExtension?: string) {
+    this.urlForNonExtension = urlForNonExtension
+  }
 
   async getTaskIdIfPresent() {
 
@@ -45,7 +50,7 @@ class UrlUnderstander {
         return promise;
     } else {
       // Just a testing url for non-chrome-extension use
-      let currentTabUrl : string = "https://app.asana.com/0/157953484489631/313415232221641"
+      let currentTabUrl = this.urlForNonExtension || "https://app.asana.com/0/157953484489631/313415232221641";
       return this.handleUrl(currentTabUrl);
     }
   }

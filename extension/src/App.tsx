@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 import ScoreSprintScriptButton from './ScoreSprintScriptButton';
-import ParseForwardedEmailDateAndSetDueDateButton from './ParseForwardedEmailDateAndSetDueDateButton';
+import ParseForwardedEmailDateAndSetDueDateButton from './ParseForwardedEmailDateAndSetDueDateButton/Button';
 
 export class App extends React.Component<{}, {}> {
   render() {
