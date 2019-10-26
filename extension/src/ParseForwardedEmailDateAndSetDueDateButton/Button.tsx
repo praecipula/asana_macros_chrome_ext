@@ -23,15 +23,24 @@ export class ParseForwardedEmailDateAndSetDueDateButton extends ScriptButton<any
   };
 
   parseAndSetDateTime = () => {
-    console.log("Hello!");
+    let client = Asana.Client.create().useAccessToken(AppSecrets.asana_pat);
     let promise = this.state.understander.getTaskIdIfPresent();
     promise.then((res: UrlMatch) => {
         console.log("The result is " + res.task_gid);
-        let client = Asana.Client.create().useAccessToken(AppSecrets.asana_pat);
         return client.tasks.findById(res.task_gid);
       }
     ).then((apiResult: any) => {
       console.log(apiResult);
+      console.log("Parsing task description ");
+      let regexp = new RegExp('.*Date: (?<send_date>.*) at (?<send_time_local>.*(AM|PM))');
+      let text = apiResult.notes;
+      let match: any = regexp.exec(text);
+      if (!match) {
+        console.error("Could not parse date! " + text);
+      }
+      let date_time = new Date(match.groups.send_date + ' ' +  match.groups.send_time_local) 
+      console.log("Setting due date to " + date_time + " (" + date_time.toISOString() + ")");
+      return client.tasks.update(apiResult.gid, { due_at: date_time.toISOString() });
     });
   }
 

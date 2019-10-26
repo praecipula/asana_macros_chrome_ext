@@ -60,3 +60,4 @@ typings/
 *.swp
 *.swo
 
+extension/build.pem
