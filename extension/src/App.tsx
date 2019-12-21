@@ -3,6 +3,7 @@ import './App.css';
 
 import ScoreSprintScriptButton from './ScoreSprintScriptButton';
 import ParseForwardedEmailDateAndSetDueDateButton from './ParseForwardedEmailDateAndSetDueDateButton/Button';
+import OpenLinksInTaskButton from './OpenLinksInTaskButton/Button';
 
 export class App extends React.Component<{}, {}> {
   render() {
@@ -13,6 +14,7 @@ export class App extends React.Component<{}, {}> {
         </h2>
         <ScoreSprintScriptButton />
         <ParseForwardedEmailDateAndSetDueDateButton />
+        <OpenLinksInTaskButton />
       </div>
     </div>
     )

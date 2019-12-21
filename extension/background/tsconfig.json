@@ -15,9 +15,9 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "noEmit": true,
+    "isolatedModules": true,
     "jsx": "preserve",
-    "isolatedModules": true
+    "outDir": "../build"
   },
   "include": [
     "src"

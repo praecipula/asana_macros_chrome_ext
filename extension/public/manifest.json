@@ -8,6 +8,10 @@
     "default_popup": "index.html",
     "default_title": "Open the popup"
   },
+  "background": {
+    "scripts": ["tab_worker.js"],
+    "persistent": false
+  },
   "icons": {
     "16": "logo-small.png",
     "48": "logo-small.png",
